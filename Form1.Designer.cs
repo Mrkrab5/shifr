@@ -125,7 +125,7 @@ namespace shifr
             this.itogEncrypt.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.itogEncrypt.Location = new System.Drawing.Point(52, 235);
             this.itogEncrypt.Name = "itogEncrypt";
-            this.itogEncrypt.Size = new System.Drawing.Size(500, 53);
+            this.itogEncrypt.Size = new System.Drawing.Size(500, 70);
             this.itogEncrypt.TabIndex = 7;
             // 
             // buttonEncrypt

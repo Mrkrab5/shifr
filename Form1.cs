@@ -52,6 +52,14 @@ namespace shifr
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
             }
+            else if (choiceMethod.SelectedIndex == 6)
+            {
+                dopYsl.Visible = false;
+                dopYslLabel.Visible = false;
+                dopYsl.Text = "";
+                dopYslLabel.Text = "Дополнительные данные";
+                dopYslLabel.Location = new Point(327, 99);
+            }
         }
 
         private void buttonEncrypt_Click(object sender, EventArgs e)
@@ -67,6 +75,9 @@ namespace shifr
             
             else if (choiceMethod.SelectedIndex == 3)
                 itogEncrypt.Text = Tritemia.Decoding(entryMasseng.Text, dopYsl.Text);
+
+            else if (choiceMethod.SelectedIndex == 6)
+                itogEncrypt.Text = illuminateCode.Decoding(entryMasseng.Text);
 
         }
     }
