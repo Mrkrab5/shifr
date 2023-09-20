@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace shifr
 {
@@ -19,8 +21,8 @@ namespace shifr
         static public string Decoding(string massenge)
         {
             string lowReg = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя", n = "", result = "";
-
-            string[,] array =
+                
+                string[,] array =
                 { {"  ", " ", "|", " ", "*", "|", "-", "-", "-"}, {"|", "   ", "|", "|", " *", "|", "-", "-", "-"},
                   {"|", "  ", " ", "|", "*", " ", "-", "-", "-"}, {"-", "-", "-", " ", "*", "|", "-", "-", "-"},
                   {"-", "-", "-", "|", "*", "|", "-", "-", "-"}, {"-", "-", "-", "|", "*", " ", "-", "-", "-"},
@@ -40,7 +42,7 @@ namespace shifr
                   {"/", "-", "-", "|", "-", "-", "\\","-", "-"}, {"/", "-", "\\","|", "|", "|", "|", "|", "|"}};
 
             int[] mmas = new int[massenge.Length];
-            
+
             n = massenge.ToLower();
             result = lowReg + " ";
 
@@ -63,7 +65,7 @@ namespace shifr
                     {
                         result += array[mmas[j], k + 3 * i];
                     }
-                    result += "   ";
+                    result += "      ";
                 }
                 result += "\n";
             }
