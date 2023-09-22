@@ -18,7 +18,8 @@ namespace shifr
         {
             string lowReg = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
                 hightReg = lowReg.ToUpper(), newHightReg = "",
-                n = "", result = "", placeDopSymbol = "";
+                n = "", result = "";
+            int rowDopSymbol = 0, columnDopSymbol = 0, resultLenght = 0;
 
             //Убираем повторяющиеся буквы из word
             for (int i = 0; i < word.Length; i++)
@@ -63,117 +64,168 @@ namespace shifr
                 {
                     //Если не закончились буквы
                     if (6 * i + j < newHightReg.Length)
+                    {
                         array[i, j] = newHightReg[6 * i + j];
+
+                        if (newHightReg[6 * i + j] == 'Я')
+                        {
+                            rowDopSymbol = i;
+                            columnDopSymbol = j;
+                        }
+                    }
+
                     //Если закончились то следующим символом будет пробел для ФИО
                     else if (6 * i + j == newHightReg.Length)
                         array[i, j] = ' ';
-                    else if (newHightReg[6 * i + j] == 'Я')
-                        placeDopSymbol = i + " " + j;
+
                 }
             }
             
             //Из-за того что все буквы в массиве в верхнем регистре
-            //переводим в верхний регистр
-            n = massenge.ToUpper();
-            //int[,] masIndex = new int[massenge.Length / 2, 4]; 
+            //переводим в верхний регистр и добавляем пробел в конец
+            //если длина сообщения нечётная
 
-            for (int i = 0; i < massenge.Length / 2; i += 2)
+            if (massenge.Length % 2 == 0)
             {
-                string a = "", b = "";
+                n = massenge.ToUpper();
+                resultLenght = n.Length;
+            }
+            else
+            {
+                n = massenge.ToUpper() + " ";
+                resultLenght = massenge.Length + 1; 
+            }
+
+            for (int i = 0; i < resultLenght; i += 2)
+            {
+                int rowFirst = 0, columnFirst = 0, rowSecond = 0, columnSecond = 0;
+
                 for (int j = 0; j < 6; j++)
                 {
                     for (int k = 0; k < 6; k++)
                     {
-                        //Если длина сообщения чётная
-                        if (massenge.Length % 2 == 0)
+                        if (n[i] == array[j, k])
                         {
-                            if (n[i] == array[j, k])
-                                a = j + " " + k;
-
-                            else if (n[i + 1] == array[j, k])
-                                b = j + " " + k;
+                            rowFirst = j;
+                            columnFirst = k;
                         }
-                        //Если длина сообщения нечётная
-                        else
+
+                        if (n[i + 1] == array[j, k])
                         {
-                            //Когда последний символ остался без пары, дополняем пробелом
-                            if (n[i + 1] == array[j, k] && j == 5 && k <= 3)
-                                b = 5 + " " + 3;
-
-                            else if (n[i] == array[j, k])
-                                a = j + " " + k;
-
-                            else if (n[i + 1] == array[j, k])
-                                b = j + " " + k;
+                            rowSecond = j;
+                            columnSecond = k;
                         }
                     }
                 }
                 //Когда символы находятся в одной строке
-                if (a[0] == b[0])
+                if (rowFirst == rowSecond)
                 {
                     //Если элементы одинаковые 
-                    if (a[2] == b[2])
+                    if (columnFirst == columnSecond)
                     {
+                        
                         //Если элементы находятся не в последнем столбце,
                         //и не на последней строчке
-                        if (a[2] < 5 && a[0] < 5)
-                            result += array[a[0], a[2] + 1] + array[placeDopSymbol[0], placeDopSymbol[2]];
+                        if (columnFirst < 5 && rowFirst < 5)
+                            result += $"{array[rowFirst, columnFirst + 1]}{array[rowDopSymbol, columnDopSymbol]}";
 
                         //Если элементы находяться в крайнем столбце, и не на последней строчке
-                        else if (a[2] == 5 && a[0] <= 4)
-                            result += array[a[0], 0] + array[placeDopSymbol[0], placeDopSymbol[2]];
+                        else if (columnFirst == 5 && rowFirst <= 4)
+                            result += $"{array[rowFirst, 0]}{array[rowDopSymbol, columnDopSymbol]}";
 
                         //Если элементы находятся не в последнем столбце,
                         //но на последней строчке
-                        else if (a[2] < 3 && a[0] == 5)
-                            result += array[a[0], a[2] + 1] + array[placeDopSymbol[0], placeDopSymbol[2]];
+                        else if (columnFirst < 3 && rowFirst == 5)
+                            result += $"{array[rowFirst, columnFirst + 1]}{array[rowDopSymbol, columnDopSymbol]}";
 
                         //Если элементы находятся в последнем столбце и на последней строчке
-                        else if (a[2] == 3 && a[0] == 5)
-                            result += array[a[0], 0] + array[placeDopSymbol[0], placeDopSymbol[2]];
+                        else if (columnFirst == 3 && rowFirst == 5)
+                            result += $"{array[rowFirst, 0]}{array[rowDopSymbol, columnDopSymbol]}";
                     }
                     else
                     {
                         //Если элементы находяться не на последней строке,
-                        //и не на последней строчке
-                        if (a[0] < 5 && a[2] < 5 && b[2] < 5)
-                            result += array[a[0], a[2] + 1] + array[b[0], b[2] + 1];
+                        //и не в последнем столбце
+                        if (rowFirst < 5 && columnFirst < 5 && columnSecond < 5)
+                            result += $"{array[rowFirst, columnSecond + 1]}{array[rowSecond, columnSecond + 1]}";
 
                         //Если 1-й эл-т находится в последнем столбце, но не в последней строчке,
                         //а 2-й эл-т находится не в последнем столбце и не в последней строчке 
-                        else if (a[0] < 5 && a[2] == 5)
-                            result += array[a[0], 0] + array[b[0], b[2] + 1];
+                        else if (rowFirst < 5 && columnFirst == 5)
+                            result += $"{array[rowFirst, 0]}{array[rowSecond, columnSecond + 1]}";
 
                         //Если 1-й эл-т находится не в последнем столбце и не в последней строчке,
                         //а 2-й эл-т находится в последнем столбце, но не в последней строчке
-                        else if (a[0] < 5 && b[2] == 5)
-                            result += array[a[0], a[2] + 1] + array[b[0], 0];
+                        else if (rowFirst < 5 && columnSecond == 5)
+                            result += $"{array[rowFirst, columnSecond + 1]}{array[rowSecond, 0]}";
 
                         //Если 1-й и 2-й эл-ты находятся не в последнем столбце,
                         //но в последней строчке
-                        else if (a[0] == 5 && a[2] < 3 && b[2] < 3)
-                            result += array[a[0], a[2] + 1] + array[b[0], b[2] + 1];
+                        else if (rowFirst == 5 && columnSecond < 3 && columnSecond < 3)
+                            result += $"{array[rowFirst, columnFirst + 1]}{array[rowSecond, columnSecond + 1]}";
 
                         //Если 1-й эл-т и 2-й эл-т находятся на последней строчке,
                         //1-й эл-т находится на последнем столбце, а 2-й нет
-                        else if (a[0] == 5 && a[2] == 3)
-                            result += array[a[0], 0] + array[b[0], b[2] + 1];
+                        else if (rowFirst == 5 && columnFirst == 3)
+                            result += $"{array[rowFirst, 0]}{array[rowSecond, columnSecond + 1]}";
 
                         //Если 1-й и 2-й эл-ты находятся на последней строчке,
                         //1-й эл-т находится не на последнем столбце, а 2-й на последнем
-                        else if (a[0] == 5 && b[2] == 3)
-                            result += array[a[0], a[2] + 1] + array[b[0], 0];
+                        else if (rowFirst == 5 && columnSecond == 3)
+                            result += $"{array[rowFirst, columnFirst + 1]}{array[rowSecond, 0]}";
                     }
                 }
                 //Когда символы находяться в одном столбце
-                else if (a[2] == b[2])
+                else if (columnFirst == columnSecond)
                 {
-                    //Если элементы являются одинаковыми и находяться выше
-                    //предпоследней строки
-                    if (a[0] == b[0] && a[2] <= 3)
-                        result += array[a[0] + 1, a[2]] + array[placeDopSymbol[0], placeDopSymbol[2]];
-                    
+                    //Если элементы одинаковые
+                    if (rowFirst == rowSecond)
+                    {
+                        //Если эл-ты находятся не в последней строке и не над пустыми значениями
+                        if (rowFirst < 5 && columnFirst < 4)
+                            result += $"{array[rowFirst + 1, columnFirst]}{array[rowDopSymbol, columnDopSymbol]}";
+
+                        //Если эл-ты находтся не на предпоследней строчке, но на последних 2-х столбцах
+                        else if (rowFirst < 4 && columnFirst >= 4)
+                            result += $"{array[rowFirst + 1, columnFirst]}{array[rowDopSymbol, columnDopSymbol]}";
+
+                        //Если эл-ты находятся на предпоследней строчке и в столбцах с пустыми значениями
+                        else if (rowFirst == 4 && columnFirst >= 4)
+                            result += $"{array[0, columnFirst]}{array[rowDopSymbol, columnDopSymbol]}";
+
+                        //Если эл-ты находятся на последней строке
+                        else if (rowFirst == 5)
+                            result += $"{array[0, columnFirst]}{array[rowDopSymbol, columnDopSymbol]}";
+                    }
+                    else
+                    {
+                        //Если эл-ты находятся выше предпоследней строчки
+                        if (rowFirst < 4 && rowSecond < 4)
+                            result += $"{array[rowFirst + 1, columnFirst]}{array[rowSecond + 1, columnSecond]}";
+
+                        //Если 1-й эл-т находится в предпоследней строчке в столбцах с пустыми значениями,
+                        //а 2-й эл-т находится не в последней строчке
+                        else if (rowFirst == 4 && columnFirst >= 4)
+                            result += $"{array[0, columnFirst]}{array[rowSecond + 1, columnSecond]}";
+
+                        //Если 1-й эл-т находится не в предпоследней строчке,
+                        //а 2-й эл-т находится на предпоследней строке и в столбцах с пустыми значениями
+                        else if (columnSecond >= 4 && rowSecond == 4)
+                            result += $"{array[rowFirst + 1, columnFirst]}{array[0, columnSecond]}";
+
+                        //Если 1-й эл-т находится на последней строке, а 2-й нет
+                        else if (rowFirst == 5)
+                            result += $"{array[0, columnFirst]}{array[rowSecond + 1, columnSecond]}";
+
+                        //Если 2-й эл-т находится на последней строке, а 1-й нет
+                        else if (rowSecond == 5)
+                            result += $"{array[rowFirst + 1, columnFirst]}{array[0, columnSecond]}";
+                    }
                 }
+                else
+                    result += $"{array[rowFirst, columnSecond]}{array[rowSecond, columnFirst]}";
+
+                result += " ";
             }
 
             return result;
