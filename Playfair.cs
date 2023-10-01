@@ -227,7 +227,6 @@ namespace shifr
 
                 result += " ";
             }
-
             return result;
         }
     }

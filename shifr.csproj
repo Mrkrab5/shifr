@@ -56,9 +56,11 @@
     <Compile Include="illuminateCode.cs" />
     <Compile Include="Playfair.cs" />
     <Compile Include="polobianSquare.cs" />
+    <Compile Include="Porta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sloganEncryption.cs" />
+    <Compile Include="systemMultivalued.cs" />
     <Compile Include="Tritemia.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

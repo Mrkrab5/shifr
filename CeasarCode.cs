@@ -44,7 +44,6 @@ namespace shifr
 							result += n[j + shift + n.Length];
                     }
                 }
-				
             }
 			return result;
 		}

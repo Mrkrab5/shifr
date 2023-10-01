@@ -60,6 +60,14 @@ namespace shifr
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
             }
+            else if (choiceMethod.SelectedIndex == 5)
+            {
+                dopYsl.Visible = false;
+                dopYslLabel.Visible = false;
+                dopYsl.Text = "";
+                dopYslLabel.Text = "Дополнительные данные";
+                dopYslLabel.Location = new Point(327, 99);
+            }
             else if (choiceMethod.SelectedIndex == 6)
             {
                 dopYsl.Visible = false;
@@ -86,6 +94,9 @@ namespace shifr
 
             else if (choiceMethod.SelectedIndex == 4)
                 itogEncrypt.Text = Playfair.Decoding(entryMasseng.Text, dopYsl.Text);
+
+            else if (choiceMethod.SelectedIndex == 5)
+                itogEncrypt.Text = systemMultivalued.Decoding(entryMasseng.Text);
 
             else if (choiceMethod.SelectedIndex == 6)
                 itogEncrypt.Text = illuminateCode.Decoding(entryMasseng.Text);
