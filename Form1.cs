@@ -84,6 +84,14 @@ namespace shifr
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
             }
+            else if (choiceMethod.SelectedIndex == 8)
+            {
+                dopYsl.Visible = false;
+                dopYslLabel.Visible = false;
+                dopYsl.Text = "";
+                dopYslLabel.Text = "Дополнительные данные";
+                dopYslLabel.Location = new Point(327, 99);
+            }
         }
 
         private void buttonEncrypt_Click(object sender, EventArgs e)
@@ -111,6 +119,9 @@ namespace shifr
 
             else if (choiceMethod.SelectedIndex == 7)
                 itogEncrypt.Text = Porta.Decoding(entryMasseng.Text);
+
+            else if (choiceMethod.SelectedIndex == 8)
+                itogEncrypt.Text = Hill.Decoding(entryMasseng.Text);
 
         }
     }

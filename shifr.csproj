@@ -53,7 +53,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hill.cs" />
     <Compile Include="illuminateCode.cs" />
+    <Compile Include="OptionShifr.cs" />
     <Compile Include="Playfair.cs" />
     <Compile Include="polobianSquare.cs" />
     <Compile Include="Porta.cs" />
