@@ -64,6 +64,7 @@
     <Compile Include="sloganEncryption.cs" />
     <Compile Include="systemMultivalued.cs" />
     <Compile Include="Tritemia.cs" />
+    <Compile Include="VisenerShifr.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

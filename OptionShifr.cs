@@ -14,15 +14,15 @@ namespace shifr
         
         }
 
-        static public string Decoding(string word)
+        static public string Decoding(string massenge, string word)
         {
             string lowReg = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
                 hightReg = lowReg.ToUpper(), newHightReg = "",
                 n = "", result = "";
 
             Dictionary<int, string> dict = new Dictionary<int, string>
-            {{0, "А В"}, {1, "Д Ё"}, {2, "З Й"}, {3, "Л Н"}, {4, "П С"}, {5, "У Х"}, {6, "Ч Щ"}, {7, "Ы Э"},
-             {8, "Я Б"}, {9, "Г Е"}, {10, "Ж И"}, {1, "К М"}};
+            {{0, "АВ"}, {1, "ДЁ"}, {2, "ЗЙ"}, {3, "ЛН"}, {4, "ПС"}, {5, "УХ"}, {6, "ЧЩ"}, {7, "ЫЭ"},
+             {8, "ЯБ"}, {9, "ГЕ"}, {10, "ЖИ"}, {11, "КМ"}};
 
             //Убираем повторяющиеся буквы из word
             for (int i = 0; i < word.Length; i++)
@@ -74,10 +74,25 @@ namespace shifr
             }
             //Из-за того что все буквы в массиве в верхнем регистре
             //переводим в верхний регистр
-            n = word.ToUpper();
-
-
-
+            n = massenge.ToUpper();
+            Random rnd = new Random();
+            
+            for (int i = 0; i < n.Length; i++)
+            {
+                for(int j = 0; j < 6; j++)
+                {
+                    for(int k = 0; k < 6; k++)
+                    {
+                        if (n[i] == array[j, k])
+                        {
+                            string a, b;
+                            a = dict[j];
+                            b = dict[k + 6];
+                            result += $"{a[rnd.Next(2)]}{b[rnd.Next(2)]} ";
+                        }
+                    }
+                }
+            }
             return result;
         }
     }

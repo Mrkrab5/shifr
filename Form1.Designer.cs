@@ -59,10 +59,10 @@ namespace shifr
             "Вариантный шифр",
             "Шифр Тени",
             "Шифр Виженера"});
-            this.choiceMethod.Location = new System.Drawing.Point(33, 150);
-            this.choiceMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.choiceMethod.Location = new System.Drawing.Point(25, 122);
+            this.choiceMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.choiceMethod.Name = "choiceMethod";
-            this.choiceMethod.Size = new System.Drawing.Size(300, 30);
+            this.choiceMethod.Size = new System.Drawing.Size(226, 27);
             this.choiceMethod.TabIndex = 0;
             this.choiceMethod.SelectedIndexChanged += new System.EventHandler(this.choiceMethod_SelectedIndexChanged);
             // 
@@ -70,10 +70,9 @@ namespace shifr
             // 
             this.choiseLabel.AutoSize = true;
             this.choiseLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.choiseLabel.Location = new System.Drawing.Point(81, 122);
-            this.choiseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.choiseLabel.Location = new System.Drawing.Point(61, 99);
             this.choiseLabel.Name = "choiseLabel";
-            this.choiseLabel.Size = new System.Drawing.Size(213, 27);
+            this.choiseLabel.Size = new System.Drawing.Size(168, 21);
             this.choiseLabel.TabIndex = 1;
             this.choiseLabel.Text = "Метод шифрования";
             // 
@@ -81,29 +80,26 @@ namespace shifr
             // 
             this.whatEncrypt.AutoSize = true;
             this.whatEncrypt.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.whatEncrypt.Location = new System.Drawing.Point(316, 11);
-            this.whatEncrypt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.whatEncrypt.Location = new System.Drawing.Point(237, 9);
             this.whatEncrypt.Name = "whatEncrypt";
-            this.whatEncrypt.Size = new System.Drawing.Size(193, 31);
+            this.whatEncrypt.Size = new System.Drawing.Size(148, 23);
             this.whatEncrypt.TabIndex = 2;
             this.whatEncrypt.Text = "Что шифровать";
             // 
             // entryMasseng
             // 
             this.entryMasseng.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.entryMasseng.Location = new System.Drawing.Point(16, 62);
-            this.entryMasseng.Margin = new System.Windows.Forms.Padding(4);
+            this.entryMasseng.Location = new System.Drawing.Point(12, 50);
             this.entryMasseng.Name = "entryMasseng";
-            this.entryMasseng.Size = new System.Drawing.Size(767, 38);
+            this.entryMasseng.Size = new System.Drawing.Size(576, 32);
             this.entryMasseng.TabIndex = 3;
             // 
             // dopYsl
             // 
-            this.dopYsl.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dopYsl.Location = new System.Drawing.Point(395, 150);
-            this.dopYsl.Margin = new System.Windows.Forms.Padding(4);
+            this.dopYsl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dopYsl.Location = new System.Drawing.Point(296, 122);
             this.dopYsl.Name = "dopYsl";
-            this.dopYsl.Size = new System.Drawing.Size(368, 30);
+            this.dopYsl.Size = new System.Drawing.Size(277, 29);
             this.dopYsl.TabIndex = 4;
             this.dopYsl.Visible = false;
             // 
@@ -111,39 +107,35 @@ namespace shifr
             // 
             this.dopYslLabel.AutoSize = true;
             this.dopYslLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dopYslLabel.Location = new System.Drawing.Point(436, 122);
-            this.dopYslLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dopYslLabel.Location = new System.Drawing.Point(327, 99);
             this.dopYslLabel.Name = "dopYslLabel";
-            this.dopYslLabel.Size = new System.Drawing.Size(269, 27);
+            this.dopYslLabel.Size = new System.Drawing.Size(211, 21);
             this.dopYslLabel.TabIndex = 5;
             this.dopYslLabel.Text = "Дополнительные данные";
             // 
             // itog
             // 
             this.itog.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.itog.Location = new System.Drawing.Point(284, 220);
-            this.itog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.itog.Location = new System.Drawing.Point(213, 179);
             this.itog.Name = "itog";
-            this.itog.Size = new System.Drawing.Size(267, 26);
+            this.itog.Size = new System.Drawing.Size(200, 21);
             this.itog.TabIndex = 6;
             this.itog.Text = "Результат шифрования:";
             // 
             // itogEncrypt
             // 
             this.itogEncrypt.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.itogEncrypt.Location = new System.Drawing.Point(69, 289);
-            this.itogEncrypt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.itogEncrypt.Location = new System.Drawing.Point(52, 235);
             this.itogEncrypt.Name = "itogEncrypt";
-            this.itogEncrypt.Size = new System.Drawing.Size(667, 86);
+            this.itogEncrypt.Size = new System.Drawing.Size(500, 70);
             this.itogEncrypt.TabIndex = 7;
             // 
             // buttonEncrypt
             // 
             this.buttonEncrypt.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonEncrypt.Location = new System.Drawing.Point(321, 382);
-            this.buttonEncrypt.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEncrypt.Location = new System.Drawing.Point(241, 310);
             this.buttonEncrypt.Name = "buttonEncrypt";
-            this.buttonEncrypt.Size = new System.Drawing.Size(192, 54);
+            this.buttonEncrypt.Size = new System.Drawing.Size(144, 44);
             this.buttonEncrypt.TabIndex = 8;
             this.buttonEncrypt.Text = "Зашифровать";
             this.buttonEncrypt.UseVisualStyleBackColor = true;
@@ -157,9 +149,9 @@ namespace shifr
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.buttonEncrypt);
             this.Controls.Add(this.itogEncrypt);
             this.Controls.Add(this.itog);
@@ -169,7 +161,7 @@ namespace shifr
             this.Controls.Add(this.whatEncrypt);
             this.Controls.Add(this.choiseLabel);
             this.Controls.Add(this.choiceMethod);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
