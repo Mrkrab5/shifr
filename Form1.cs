@@ -25,7 +25,8 @@ namespace shifr
                 dopYslLabel.Visible = true;
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: сдвиг";
-                dopYslLabel.Location = new Point(292, 99);             
+                dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
 
             else if (choiceMethod.SelectedIndex == 1)
@@ -35,6 +36,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: слоган";
                 dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
             else if ( choiceMethod.SelectedIndex == 2)
             {
@@ -43,6 +45,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 3)
             {
@@ -51,6 +54,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 4)
             {
@@ -59,6 +63,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 5)
             {
@@ -67,6 +72,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 6)
             {
@@ -75,6 +81,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = true;
             }
             else if (choiceMethod.SelectedIndex == 7)
             {
@@ -83,6 +90,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 8)
             {
@@ -91,6 +99,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные";
                 dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 9)
             {
@@ -99,6 +108,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
             else if (choiceMethod.SelectedIndex == 11)
             {
@@ -107,6 +117,7 @@ namespace shifr
                 dopYsl.Text = "";
                 dopYslLabel.Text = "Дополнительные данные: слово";
                 dopYslLabel.Location = new Point(292, 99);
+                imageOutput.Visible = false;
             }
         }
 
@@ -131,7 +142,10 @@ namespace shifr
                 itogEncrypt.Text = systemMultivalued.Decoding(entryMasseng.Text);
 
             else if (choiceMethod.SelectedIndex == 6)
-                itogEncrypt.Text = illuminateCode.Decoding(entryMasseng.Text);
+            {
+                imageOutput.Controls.Clear();
+                illuminateCode.Decoding(entryMasseng.Text, imageOutput);
+            }
 
             else if (choiceMethod.SelectedIndex == 7)
                 itogEncrypt.Text = Porta.Decoding(entryMasseng.Text);
