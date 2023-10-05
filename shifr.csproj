@@ -90,5 +90,41 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Image\1.png" />
+    <Content Include="bin\Debug\Image\Ё.png" />
+    <Content Include="bin\Debug\Image\А.png" />
+    <Content Include="bin\Debug\Image\Б.png" />
+    <Content Include="bin\Debug\Image\В.png" />
+    <Content Include="bin\Debug\Image\Г.png" />
+    <Content Include="bin\Debug\Image\Д.png" />
+    <Content Include="bin\Debug\Image\Е.png" />
+    <Content Include="bin\Debug\Image\Ж.png" />
+    <Content Include="bin\Debug\Image\З.png" />
+    <Content Include="bin\Debug\Image\И.png" />
+    <Content Include="bin\Debug\Image\Й.png" />
+    <Content Include="bin\Debug\Image\К.png" />
+    <Content Include="bin\Debug\Image\Л.png" />
+    <Content Include="bin\Debug\Image\М.png" />
+    <Content Include="bin\Debug\Image\Н.png" />
+    <Content Include="bin\Debug\Image\О.png" />
+    <Content Include="bin\Debug\Image\П.png" />
+    <Content Include="bin\Debug\Image\Р.png" />
+    <Content Include="bin\Debug\Image\С.png" />
+    <Content Include="bin\Debug\Image\Т.png" />
+    <Content Include="bin\Debug\Image\У.png" />
+    <Content Include="bin\Debug\Image\Ф.png" />
+    <Content Include="bin\Debug\Image\Х.png" />
+    <Content Include="bin\Debug\Image\Ц.png" />
+    <Content Include="bin\Debug\Image\Ч.png" />
+    <Content Include="bin\Debug\Image\Ш.png" />
+    <Content Include="bin\Debug\Image\Щ.png" />
+    <Content Include="bin\Debug\Image\Ъ.png" />
+    <Content Include="bin\Debug\Image\Ы.png" />
+    <Content Include="bin\Debug\Image\Ь.png" />
+    <Content Include="bin\Debug\Image\Э.png" />
+    <Content Include="bin\Debug\Image\Ю.png" />
+    <Content Include="bin\Debug\Image\Я.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
