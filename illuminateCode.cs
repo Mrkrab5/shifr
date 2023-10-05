@@ -22,7 +22,6 @@ namespace shifr
         {
             string lowReg = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя", n = "", result = "";
             var exePath = AppDomain.CurrentDomain.BaseDirectory;
-            int[] mmas = new int[massenge.Length];
 
             n = massenge.ToUpper();
             result = lowReg.ToUpper() + " ";

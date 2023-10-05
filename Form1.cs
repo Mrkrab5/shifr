@@ -110,6 +110,15 @@ namespace shifr
                 dopYslLabel.Location = new Point(292, 99);
                 imageOutput.Visible = false;
             }
+            else if (choiceMethod.SelectedIndex == 10)
+            {
+                dopYsl.Visible = false;
+                dopYslLabel.Visible = false;
+                dopYsl.Text = "";
+                dopYslLabel.Text = "Дополнительные данные";
+                dopYslLabel.Location = new Point(327, 99);
+                imageOutput.Visible = true;
+            }
             else if (choiceMethod.SelectedIndex == 11)
             {
                 dopYsl.Visible = true;
@@ -155,6 +164,12 @@ namespace shifr
 
             else if (choiceMethod.SelectedIndex == 9)
                 itogEncrypt.Text = OptionShifr.Decoding(entryMasseng.Text, dopYsl.Text);
+
+            else if (choiceMethod.SelectedIndex == 10)
+            {
+                imageOutput.Controls.Clear();
+                Shadow.Decoding(entryMasseng.Text, imageOutput);
+            }
 
             else if (choiceMethod.SelectedIndex == 11)
                 itogEncrypt.Text = VisenerShifr.Decoding(entryMasseng.Text, dopYsl.Text);
