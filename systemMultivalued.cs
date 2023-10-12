@@ -18,21 +18,7 @@ namespace shifr
         {
             string result = "", n = massenge.ToUpper(), dictZnach;
             Random rnd = new Random();
-            /*
-            int[,] znachSymbol = new int[34, 7];
-
-            for (int i = 0; i < n.Length; i ++)
-            {
-                for (int j = 0; j < lowReg.Length; j++)
-                {
-                    if (n[i] == lowReg[j])
-                    {
-                        int y = rnd.Next(7);
-
-                    }
-                }
-            }*/
-            
+                        
             Dictionary<char, string> dict = new Dictionary<char, string>
             { {'А', "0 34 53 67 78 "}, {'Б', "1 "}, {'В', "2 35 54 68 "}, {'Г', "3 "}, {'Д', "4 36 55 "}, {'Е', "5 37 56 69 79 86 90 "},
               {'Ё', "6 38 57 70 80 87 91 "}, {'Ж', "7 "}, {'З', "8 39 "}, {'И', "9 40 58 71 "}, {'Й', "10 "}, {'К', "11 41 59 "},
@@ -56,8 +42,12 @@ namespace shifr
                 }
                 //Выбирается случайная замена для буквы из списка
                 tmpCount = rnd.Next(count);
+
+                if (tmpCount == 0)
+                    tmpCount++;
+
                 count = 0;
-                bool may = false;
+                bool may = true;
 
                 for (int j = 0; j < dictZnach.Length; j++)
                 {
@@ -67,14 +57,15 @@ namespace shifr
                     {
                         count++;
                         //Если буква ещё не зашифрована
-                        if ((count == tmpCount && !may)  || (count - 1 == tmpCount && !may))
-                            may = true;
-                        //Шифруем букву если ещё не зашифрована
-                        if (may)
+                        if (count == tmpCount && may)
                         {
                             result += tmpString;
                             may = false;
                         }
+                        //Шифруем букву если ещё не зашифрована
+                        /*if (!may)
+                            result += tmpString;
+                        */
                         tmpString = "";
                     }
                 }
